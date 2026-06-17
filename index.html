@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Questões - Cadastro</title>
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link href="css/editor.css" rel="stylesheet">
+  
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="menu-navegacao">
+        <strong>Navegação:</strong> 
+        <a href="index.html" class="active">📝 Cadastrar Questões</a>
+        <a href="prova.html">🖨️ Gerar e Imprimir Prova</a>
+    </div>
+
+    <h2>Cadastro de Questão</h2>
+    <label>Cole a questão completa (texto + imagem + tabela)</label>
+    <div id="editor"></div>
+
+    <button id="salvar">💾 SALVAR QUESTÃO</button>
+  </div>
+
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <script type="module">
+    import { inicializarEditor, executarSalvarQuestao } from './js/editorController.js';
+    
+    // Inicializa as instâncias e gerencia os hooks de escuta de eventos na inicialização do DOM
+    inicializarEditor('#editor');
+    document.getElementById("salvar").addEventListener("click", executarSalvarQuestao);
+  </script>
+</body>
+</html>

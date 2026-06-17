@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Prova Gerada Automatizada</title>
+  <link href="css/prova.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="no-print menu-navegacao">
+      <strong>Navegação:</strong> 
+      <a href="index.html">📝 Cadastrar Questões</a>
+      <a href="prova.html" class="active">🖨️ Gerar e Imprimir Prova</a>
+  </div>
+
+  <div class="no-print" style="text-align: center; margin-bottom: 20px;">
+      <button class="btn-imprimir" onclick="window.print()">🖨️ IMPRIMIR / SALVAR PDF</button>
+  </div>
+
+  <div class="folha-prova">
+      <div class="cabecalho">
+          <h1>Avaliação Escolar</h1>
+          <div class="campo-dados"><strong>NOME DO ALUNO:</strong> ____________________________________________________</div>
+          <div class="campo-dados"><strong>DATA:</strong> ____/____/______ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>TURMA:</strong> ___________</div>
+      </div>
+
+      <div id="container-questoes">
+          <p style="text-align: center; color: #666;">⏳ Sorteando e carregando questões do banco de dados...</p>
+      </div>
+  </div>
+
+  <script type="module">
+    import { renderizarProvaNoContainer } from './js/provaController.js';
+    
+    // Executa a montagem assíncrona assim que a janela estiver pronta
+    window.addEventListener("DOMContentLoaded", () => {
+      renderizarProvaNoContainer("container-questoes");
+    });
+  </script>
+</body>
+</html>
