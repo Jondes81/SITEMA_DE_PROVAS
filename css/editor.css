@@ -1,0 +1,114 @@
+/* ==========================================================================
+   ESTILOS GERAIS DA INTERFACE DE CADASTRO (index.html)
+   ========================================================================== */
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 30px 15px;
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+.container {
+  max-width: 850px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+/* Menu de Navegação Superior */
+.menu-navegacao {
+  background: #e9ecef;
+  padding: 12px 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-navegacao a {
+  text-decoration: none;
+  color: #007BFF;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.menu-navegacao a:hover {
+  background-color: #d1d8e0;
+  color: #0056b3;
+}
+
+.menu-navegacao a.active {
+  background-color: #007BFF;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Customização do Container do Quill Editor */
+#editor {
+  height: 380px;
+  border: 1px solid #ced4da;
+  border-radius: 0 0 6px 6px;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+
+.ql-toolbar.ql-snow {
+  border: 1px solid #ced4da;
+  border-radius: 6px 6px 0 0;
+  background-color: #f8f9fa;
+}
+
+/* Botão de Submissão */
+button#salvar {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #28a745;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 6px rgba(40, 167, 69, 0.2);
+}
+
+button#salvar:hover {
+  background-color: #218838;
+}
+
+button#salvar:active {
+  transform: scale(0.99);
+}
+
+button#salvar:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none;
+}
