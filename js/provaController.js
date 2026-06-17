@@ -48,12 +48,21 @@ export async function renderizarProvaNoContainer(idContainer) {
 function tratarImagensDoCorpo(divCorpo) {
   const imagens = divCorpo.querySelectorAll("img");
   imagens.forEach(img => {
-    if (img.src.includes("drive.google.com")) {
-      const idMatch = img.src.match(/id=([^&]+)/) || img.src.match(/file\/d\/([^\/]+)/);
+    let srcOriginal = img.src;
+
+    // 1. Se o link for do Google Drive tradicional, converte para a CDN segura
+    if (srcOriginal.includes("drive.google.com")) {
+      const idMatch = srcOriginal.match(/id=([^&]+)/) || srcOriginal.match(/file\/d\/([^\/]+)/);
       if (idMatch && idMatch[1]) {
         img.src = "https://lh3.googleusercontent.com/d/" + idMatch[1];
       }
+    } 
+    // 2. Se o link veio com o "http://" antigo do teste anterior, força a virar "https://"
+    else if (srcOriginal.startsWith("http://googleusercontent.com")) {
+      img.src = srcOriginal.replace("http://", "https://").replace("profile/picture/0", "d/");
     }
+
+    // Remove qualquer barreira de CORS residual do navegador
     img.setAttribute("crossorigin", "anonymous");
     img.setAttribute("referrerpolicy", "no-referrer");
   });
