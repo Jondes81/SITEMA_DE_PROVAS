@@ -1,0 +1,154 @@
+/* ==========================================================================
+   ESTILOS VISUAIS E DE IMPRESSÃO DA PROVA (prova.html)
+   ========================================================================== */
+
+body {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 40px 20px;
+  color: #000000;
+}
+
+/* Menu de Navegação e Botões de Tela */
+.menu-navegacao {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  background: #e9ecef;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.menu-navegacao a {
+  text-decoration: none;
+  color: #007BFF;
+  margin-left: 15px;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.menu-navegacao a.active {
+  background-color: #007BFF;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-imprimir {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,123,255,0.15);
+  transition: background-color 0.2s;
+}
+
+.btn-imprimir:hover {
+  background-color: #0056b3;
+}
+
+/* Estrutura do Esqueleto do Papel (Simulação de A4 na tela) */
+.folha-prova {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Cabeçalho Clássico Escolar */
+.cabecalho {
+  border-bottom: 3px solid #000000;
+  padding-bottom: 15px;
+  margin-bottom: 35px;
+}
+
+.cabecalho h1 {
+  text-align: center;
+  font-size: 24px;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.campo-dados {
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-family: Courier, monospace; /* Dá o aspeto clássico de linhas de exame */
+}
+
+/* Renderização Estrutural das Questões */
+.questao {
+  margin-bottom: 40px;
+  page-break-inside: avoid; /* Evita que a questão se quebre a meio entre duas páginas */
+}
+
+.numero-questao {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #000000;
+}
+
+.enunciado-bloco {
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+/* Imagens das Questões */
+.enunciado-bloco img {
+  display: block;
+  max-width: 70%;
+  height: auto;
+  margin: 15px auto;
+  border: 1px solid #e0e0e0;
+  padding: 4px;
+  background: #fff;
+}
+
+/* Bloco de Opções (A, B, C, D, E) */
+.alternativas {
+  margin-top: 15px;
+  padding-left: 10px;
+}
+
+.alternativa {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  text-indent: -20px; /* Alinha perfeitamente o texto caso a alternativa ocupe duas linhas */
+}
+
+/* ==========================================================================
+   REGRA DE OURO: CONFIGURAÇÃO DE IMPRESSÃO (window.print)
+   ========================================================================== */
+@media print {
+  body {
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+  }
+
+  .no-print {
+    display: none !important; /* Oculta menus e botões no papel */
+  }
+
+  .folha-prova {
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .questao {
+    page-break-inside: avoid !important; /* Força o navegador físico a não cortar a questão */
+  }
+}
